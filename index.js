@@ -209,7 +209,7 @@ async function main() {
     console.log("Question    : " + message.content);
 
     try {
-      let sentMessage = await message.author.send("Let Me Think 🤔");
+      let sentMessage = await message.author.send("Bentar, Mikir dulu ya... 🤔");
 
       let interaction = {
         "user": {
@@ -260,7 +260,7 @@ async function main() {
   }
 
   async function help_Interaction_Handler(interaction) {
-    await interaction.reply("**ChatGPT Discord Bot**\nA Discord Bot Powered By OpenAI's ChatGPT !\n\n**Usage:**\nDM - Ask Anything\n`/ask` - Ask Anything\n`/reset-chat` - Start A Fresh Chat Session\n`/ping` - Check Websocket Heartbeat && Roundtrip Latency\n\nSource Code: <https://github.com/itskdhere/ChatGPT-Discord-BOT>\nSupport Server: https://dsc.gg/skdm");
+    await interaction.reply("**Board AI**\nA Discord Bot Powered By OpenAI's ChatGPT !\n\n**Usage:**\nDM - Ask Anything\n`/ask` - Ask Anything\n`/reset-chat` - Start A Fresh Chat Session\n`/ping` - Check Websocket Heartbeat && Roundtrip Latency");
     client.user.setActivity(activity);
   }
 
@@ -306,7 +306,7 @@ async function main() {
     console.log("Question    : " + question);
 
     try {
-      await interaction.reply({ content: `Let Me Think 🤔` });
+      await interaction.reply({ content: `Bentar, mikir dulu ya... 🤔` });
       askQuestion(question, interaction, async (content) => {
         if (!content.text) {
           if (content.length >= process.env.DISCORD_MAX_RESPONSE_LENGTH) {
@@ -323,11 +323,12 @@ async function main() {
         console.log("---------------End---------------");
 
         if (content.text.length >= process.env.DISCORD_MAX_RESPONSE_LENGTH) {
-          await interaction.editReply({ content: "The Answer Is Too Powerful 🤯,\nCheck Your DM 😅" });
+          await interaction.editReply({ content: "Jawabannya banyak nihhh 🤯,\n Aku kirim lewat DM ya... 😅" });
           splitAndSendResponse(content.text, interaction.user);
         } else {
-          await interaction.editReply(`**${interaction.user.tag}:** ${question}\n**${client.user.username}:** ${content.text}\n</>`);
+          await interaction.editReply(`${content.text}\n`);
         }
+        //**${interaction.user.tag}:** ${question}\n**${client.user.username}:**
         client.user.setActivity(activity);
         const timeStamp = new Date();
         const date = timeStamp.getUTCDate().toString() + '.' + timeStamp.getUTCMonth().toString() + '.' + timeStamp.getUTCFullYear().toString();
