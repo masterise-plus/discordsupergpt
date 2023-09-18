@@ -20,7 +20,7 @@ import {
 import firebaseServiceAccount from './firebaseServiceAccountKey.json' assert {type: 'json'}
 
 // Defines
-const activity = '/ask && /help'
+const activity = '/ask anything'
 
 // Discord Slash Commands Defines
 const commands = [
@@ -39,15 +39,15 @@ const commands = [
   },
   {
     name: 'ping',
-    description: 'Check Websocket Heartbeat && Roundtrip Latency'
+    description: 'Check Status Bot & Latency'
   },
   {
     name: 'reset-chat',
-    description: 'Start A Fresh Chat Session'
+    description: 'Reset dan Mulai Chat Baru'
   },
   {
     name: 'help',
-    description: 'Get Help'
+    description: 'Tolong....'
   }
 ];
 
@@ -260,7 +260,7 @@ async function main() {
   }
 
   async function help_Interaction_Handler(interaction) {
-    await interaction.reply("**Board AI**\nA Discord Bot Powered By OpenAI's ChatGPT !\n\n**Usage:**\nDM - Ask Anything\n`/ask` - Ask Anything\n`/reset-chat` - Start A Fresh Chat Session\n`/ping` - Check Websocket Heartbeat && Roundtrip Latency");
+    await interaction.reply("**Board AI**\nDiscord Bot Meet OpenAI's ChatGPT !\n\n**Usage:**\nDM - Tanya Apa Aja via DM\n`/ask` - Tanya apa aja\n`/reset-chat` - Reset dan mulai chat baru\n`/ping` - Check Status & Latency Bot");
     client.user.setActivity(activity);
   }
 
